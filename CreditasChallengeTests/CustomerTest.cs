@@ -1,9 +1,19 @@
 using CreditasChallenge;
+using Microsoft.VisualStudio.TestPlatform.Utilities;
+using Xunit.Abstractions;
 
 namespace CreditasChallengeTests
 {
     public class CustomerTest
     {
+
+        private readonly ITestOutputHelper _output;
+
+        public CustomerTest(ITestOutputHelper output)
+        {
+            _output = output;
+        }
+
         [Theory]
         [InlineData("João", "123.456.789-10", 29, "SP", 9000)]
         [InlineData("Marcos", "123.456.789-10", 22, "SP", 5000)]
@@ -30,9 +40,34 @@ namespace CreditasChallengeTests
             var customer = new Customer(name, cpf, age, location, income);
             var loans = customer.ShowTypesLoansAvailable();
 
-            Assert.Single(loans);
             Assert.Equal("personal", loans[0].Type);
-            Assert.Equal(1, loans[0].Taxes);
+            Assert.Equal(4, loans[0].Taxes);
+        }
+
+        [Theory]
+        [InlineData("João", "123.456.789-10", 29, "SP", 2500, 2)]
+        [InlineData("João", "123.456.789-10", 29, "SP", 4300, 2)]
+        [InlineData("João", "123.456.789-10", 29, "SP", 5500, 3)]
+        public void ShouldReturnCollateralizedLoan(string name, string cpf, int age, string location, double income, int expectLoanOption)
+        {
+            var customer = new Customer(name, cpf, age, location, income);
+            var loans = customer.ShowTypesLoansAvailable();
+
+            Assert.Equal(expectLoanOption, loans.Length);
+            Assert.Equal("collaterized", loans[1].Type);
+            Assert.Equal(3, loans[1].Taxes);
+        }
+
+        [Theory]
+        [InlineData("João", "123.456.789-10", 29, "SP", 5500)]
+        [InlineData("João", "123.456.789-10", 29, "SP", 5000)]
+        public void ShouldReturnPayroolLoan(string name, string cpf, int age, string location, double income)
+        {
+            var customer = new Customer(name, cpf, age, location, income);
+            var loans = customer.ShowTypesLoansAvailable();
+            Assert.Equal(3, loans.Length);
+            Assert.Equal("payroll", loans[2].Type);
+            Assert.Equal(2, loans[2].Taxes);
         }
 
     }
