@@ -17,5 +17,14 @@
             Location = location;
             Income = income;
         }
+
+        public Loan[] ShowTypesLoansAvailable()
+        {
+            var list = new List<Loan>();
+
+            list.Add(new Loan("personal", 1));
+            
+            return list.ToArray();
+        }
     }
 }
