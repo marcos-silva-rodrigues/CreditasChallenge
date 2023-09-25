@@ -17,40 +17,5 @@
             Location = location;
             Income = income;
         }
-
-        public Loan[] ShowTypesLoansAvailable()
-        {
-            var list = new List<Loan>();
-
-            list.Add(new Loan("personal", 4));
-
-            if (Income <= 3000)
-            {
-                if (Age < 30 && Location == "SP")
-                {
-                    list.Add(new Loan("collaterized", 3));
-                }
-            }
-
-            if(Income > 3000 && Income < 5000)
-            {
-                if (Location == "SP")
-                {
-                    list.Add(new Loan("collaterized", 3));
-                }
-            }
-
-            if (Income >= 5000)
-            {
-            
-                if (Age < 30)
-                {
-                    list.Add(new Loan("collaterized", 3));
-                }
-                list.Add(new Loan("payroll", 2));
-            }
-
-            return list.ToArray();
-        }
     }
 }

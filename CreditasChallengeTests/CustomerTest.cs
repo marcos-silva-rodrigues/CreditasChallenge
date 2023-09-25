@@ -38,7 +38,7 @@ namespace CreditasChallengeTests
         public void ShouldReturnPersonalLoan(string name, string cpf, int age, string location, double income)
         {
             var customer = new Customer(name, cpf, age, location, income);
-            var loans = customer.ShowTypesLoansAvailable();
+            var loans = LoanManager.GetTypesLoansAvailable(customer);
 
             Assert.Equal("personal", loans[0].Type);
             Assert.Equal(4, loans[0].Taxes);
@@ -51,7 +51,7 @@ namespace CreditasChallengeTests
         public void ShouldReturnCollateralizedLoan(string name, string cpf, int age, string location, double income, int expectLoanOption)
         {
             var customer = new Customer(name, cpf, age, location, income);
-            var loans = customer.ShowTypesLoansAvailable();
+            var loans = LoanManager.GetTypesLoansAvailable(customer);
 
             Assert.Equal(expectLoanOption, loans.Length);
             Assert.Equal("collaterized", loans[1].Type);
@@ -64,7 +64,7 @@ namespace CreditasChallengeTests
         public void ShouldReturnPayroolLoan(string name, string cpf, int age, string location, double income)
         {
             var customer = new Customer(name, cpf, age, location, income);
-            var loans = customer.ShowTypesLoansAvailable();
+            var loans = LoanManager.GetTypesLoansAvailable(customer);
             Assert.Equal(3, loans.Length);
             Assert.Equal("payroll", loans[2].Type);
             Assert.Equal(2, loans[2].Taxes);
