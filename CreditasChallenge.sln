@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditasChallenge", "CreditasChallenge\CreditasChallenge.csproj", "{5B9BDF06-24E2-425D-A911-AE3AA5A6889F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditasChallengeTests", "CreditasChallengeTests\CreditasChallengeTests.csproj", "{38E4A27D-28BA-4DEC-B932-C314C1B0C5F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5B9BDF06-24E2-425D-A911-AE3AA5A6889F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B9BDF06-24E2-425D-A911-AE3AA5A6889F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B9BDF06-24E2-425D-A911-AE3AA5A6889F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38E4A27D-28BA-4DEC-B932-C314C1B0C5F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38E4A27D-28BA-4DEC-B932-C314C1B0C5F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38E4A27D-28BA-4DEC-B932-C314C1B0C5F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38E4A27D-28BA-4DEC-B932-C314C1B0C5F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
