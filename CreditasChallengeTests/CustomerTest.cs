@@ -1,5 +1,5 @@
 using CreditasChallenge;
-using Microsoft.VisualStudio.TestPlatform.Utilities;
+using CreditasChallenge.Domain;
 using Xunit.Abstractions;
 
 namespace CreditasChallengeTests

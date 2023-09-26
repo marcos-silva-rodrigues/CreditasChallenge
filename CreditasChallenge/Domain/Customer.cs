@@ -1,4 +1,4 @@
-﻿namespace CreditasChallenge
+﻿namespace CreditasChallenge.Domain
 {
     public class Customer
     {
