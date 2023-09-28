@@ -28,5 +28,5 @@ jobs:
   
   deploy:
     needs: test
-    uses: ./.github/workflows/cd.yaml
+    uses: ./.github/workflows/cd.yml
     secrets: inherit
