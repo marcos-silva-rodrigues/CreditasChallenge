@@ -1,0 +1,32 @@
+name: "Continuos Integrations"
+
+on:
+  push:
+    branch: ["main"]
+  pull_request:
+    branch: ["main"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET Core SDK 
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '6.0.x'
+
+      - name: Install dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build
+
+      - name: Test
+        run: dotnet test
+  
+  deploy:
+    needs: test
+    uses: ./.github/workflows/cd.yml
+    secrets: inherit
